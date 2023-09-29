@@ -1,2 +1,5 @@
 streamlit
 requests
+openpyxl
+pandas
+numpy
