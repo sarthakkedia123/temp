@@ -96,7 +96,7 @@ st.text('Do you want to update the previous stock? Type Y/N')
 if st.button('Yes'):
     prev_stock=pd.DataFrame(final_df['BALANCE']).transpose()
     prev_stock.index=['PREVIOUS_STOCK']
-    prev_stock.to_excel(r'C:/Users/Hp/Desktop/office/Stock Matcher/cloth/prev_stock.xlsx',index=False)
+    #prev_stock.to_excel(r'C:/Users/Hp/Desktop/office/Stock Matcher/cloth/prev_stock.xlsx',index=False)
     pkl.dump(prev_stock.to_dict(),open('prev_stock.pkl','wb'))
     st.text('Previous Stock Updated Successfully')
 if st.button('No '):
