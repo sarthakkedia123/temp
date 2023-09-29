@@ -89,7 +89,7 @@ date=pd.Timestamp("today").strftime("%d/%m/%Y")
 name='final_df_with_total '+date+'.xlsx'
 name=name.replace('/','_')
 
-final_df_with_total.to_excel('/Users/Hp/Desktop/office/Stock Matcher/cloth/weekly_data/'+name)
+#final_df_with_total.to_excel('/Users/Hp/Desktop/office/Stock Matcher/cloth/weekly_data/'+name)
 st.dataframe(final_df_with_total)
 
 st.text('Do you want to update the previous stock? Type Y/N')
