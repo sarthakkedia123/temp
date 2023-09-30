@@ -102,4 +102,18 @@ if st.button('Yes'):
 if st.button('No '):
     st.text('Thank You..no updation has taken place')
 
+@st.cache_data
+def convert_df(data_frame):
+    # IMPORTANT: Cache the conversion to prevent computation on every rerun
+    return data_frame.to_csv().encode('utf-8')
+
+csv = convert_df(final_df_with_total)
+
+st.download_button(
+    label="Download data as CSV",
+    data=csv,
+    file_name='final_df_with_total_'+date+'.csv',
+    mime='text/csv'
+)
+
 
