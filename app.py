@@ -92,16 +92,6 @@ name=name.replace('/','_')
 #final_df_with_total.to_excel('/Users/Hp/Desktop/office/Stock Matcher/cloth/weekly_data/'+name)
 st.dataframe(final_df_with_total)
 
-st.text('Do you want to update the previous stock? Type Y/N')
-if st.button('Yes'):
-    prev_stock=pd.DataFrame(final_df['BALANCE']).transpose()
-    prev_stock.index=['PREVIOUS_STOCK']
-    #prev_stock.to_excel(r'C:/Users/Hp/Desktop/office/Stock Matcher/cloth/prev_stock.xlsx',index=False)
-    pkl.dump(prev_stock.to_dict(),open('prev_stock.pkl','wb'))
-    st.text('Previous Stock Updated Successfully')
-if st.button('No '):
-    st.text('Thank You..no updation has taken place')
-
 @st.cache_data
 def convert_df(data_frame):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
@@ -115,5 +105,16 @@ st.download_button(
     file_name='final_df_with_total_'+date+'.csv',
     mime='text/csv'
 )
+
+st.text('Do you want to update the previous stock? Type Y/N')
+if st.button('Yes'):
+    prev_stock=pd.DataFrame(final_df['BALANCE']).transpose()
+    prev_stock.index=['PREVIOUS_STOCK']
+    #prev_stock.to_excel(r'C:/Users/Hp/Desktop/office/Stock Matcher/cloth/prev_stock.xlsx',index=False)
+    pkl.dump(prev_stock.to_dict(),open('prev_stock.pkl','wb'))
+    st.text('Previous Stock Updated Successfully')
+if st.button('No '):
+    st.text('Thank You..no updation has taken place')
+
 
 
